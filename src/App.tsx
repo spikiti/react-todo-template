@@ -1,15 +1,20 @@
 import Footer from "./components/Footer";
 import Header from "./components/Header";
 import TodoList from "./components/TodoList";
+import { FilterProvider, TodosProvider } from "./context";
 
-function App() {
+const App = () => {
   return (
-    <div className="flex flex-col gap-2">
-      <Header />
-      <TodoList />
-      <Footer />
-    </div>
+    <TodosProvider>
+      <div className="flex flex-col gap-2">
+        <Header />
+        <FilterProvider>
+          <TodoList />
+          <Footer />
+        </FilterProvider>
+      </div>
+    </TodosProvider>
   );
-}
+};
 
 export default App;

@@ -1,31 +1,26 @@
-import TodoItem from "./TodoItem";
-import type { Todo } from "../types";
+import { useContext } from "react";
 
-const todos: Todo[] = [
-  {
-    id: "1",
-    text: "Get groceries",
-    status: "completed",
-  },
-  {
-    id: "2",
-    text: "Go to post office",
-    status: "pending",
-  },
-  {
-    id: "3",
-    text: "Do the laundry",
-    status: "pending",
-  },
-];
+import TodoItem from "./TodoItem";
+import { FilterContext, TodosContext } from "../context";
 
 const TodoList = () => {
+  const todos = useContext(TodosContext);
+  const filter = useContext(FilterContext);
+
   return (
     <main>
       <ul>
-        {todos.map((item) => {
-          return <TodoItem key={item.id} todo={item} />;
-        })}
+        {todos
+          .filter((t) =>
+            filter === "ALL"
+              ? true
+              : filter === "COMPLETED"
+              ? t.status === "completed"
+              : t.status === "pending"
+          )
+          .map((item) => {
+            return <TodoItem key={item.id} todo={item} />;
+          })}
       </ul>
     </main>
   );
