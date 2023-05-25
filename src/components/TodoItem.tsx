@@ -1,20 +1,28 @@
 import { Checkbox, Button } from "@blueprintjs/core";
 
+import type { Todo } from "../types";
+
 type Props = {
-  text: string;
+  todo: Todo;
 };
 
 const TodoItem = (props: Props) => {
-  const { text } = props;
+  const { todo } = props;
+
+  const isCompleted = todo.status === "completed";
 
   return (
     <li className="todo-item flex justify-between align-center ">
       <div className="flex align-center">
         <Checkbox />
-        <label>{text}</label>
+        <label
+          style={{ textDecoration: isCompleted ? "line-through" : "none" }}
+        >
+          {todo.text}
+        </label>
       </div>
       <div>
-        <Button small icon="cross" />
+        <Button small icon="small-cross" />
       </div>
     </li>
   );

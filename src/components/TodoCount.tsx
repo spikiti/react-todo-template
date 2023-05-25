@@ -1,9 +1,9 @@
-const Count = () => {
+const TodoCount = () => {
   return (
     <div>
-      <strong>2</strong> item left
+      <strong>3</strong> items left
     </div>
   );
 };
 
-export default Count;
+export default TodoCount;
