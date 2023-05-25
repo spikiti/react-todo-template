@@ -1,0 +1,32 @@
+@import "normalize.css";
+@import "@blueprintjs/core/lib/css/blueprint.css";
+@import "@blueprintjs/icons/lib/css/blueprint-icons.css";
+@import "./utils.css";
+
+body {
+  min-width: 250px;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.todo-item {
+  height: 40px;
+  border: 1px solid #e5e8eb;
+  borderr-adius: 4px;
+  margin: 4px 0;
+  padding: 4px 8px;
+}
+
+:focus {
+  outline: none;
+}
+
+.bp4-control:not(.bp4-align-right) {
+  margin: 0;
+}
