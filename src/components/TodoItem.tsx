@@ -1,5 +1,5 @@
 import { Checkbox, Button } from "@blueprintjs/core";
-import { useContext } from "react";
+import { memo, useContext } from "react";
 
 import type { Todo } from "../types";
 import { TodosDispatchContext } from "../context";
@@ -8,7 +8,7 @@ type Props = {
   todo: Todo;
 };
 
-const TodoItem = (props: Props) => {
+const TodoItem = memo((props: Props) => {
   const { todo } = props;
 
   const setTodos = useContext(TodosDispatchContext);
@@ -46,6 +46,6 @@ const TodoItem = (props: Props) => {
       </div>
     </li>
   );
-};
+});
 
 export default TodoItem;
