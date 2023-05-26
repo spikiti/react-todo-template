@@ -1,4 +1,5 @@
 import { Checkbox, Button } from "@blueprintjs/core";
+import { memo } from "react";
 
 import type { Todo } from "../types";
 
@@ -8,7 +9,7 @@ type Props = {
   deleteTodo: (id: string) => void;
 };
 
-const TodoItem = (props: Props) => {
+const TodoItem = memo((props: Props) => {
   const { todo, completeTodo, deleteTodo } = props;
 
   const isCompleted = todo.status === "completed";
@@ -28,6 +29,6 @@ const TodoItem = (props: Props) => {
       </div>
     </li>
   );
-};
+});
 
 export default TodoItem;

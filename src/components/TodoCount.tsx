@@ -1,8 +1,10 @@
+import { memo } from "react";
+
 type Props = {
   count: number;
 };
 
-const TodoCount = (props: Props) => {
+const TodoCount = memo((props: Props) => {
   const { count } = props;
 
   return (
@@ -10,6 +12,6 @@ const TodoCount = (props: Props) => {
       <strong>{count}</strong> {count > 1 ? "items" : "item"} left
     </div>
   );
-};
+});
 
 export default TodoCount;

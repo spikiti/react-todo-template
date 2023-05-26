@@ -1,3 +1,5 @@
+import { memo } from "react";
+
 import { Filter } from "../types";
 import TodoCount from "./TodoCount";
 import TodoFilter from "./TodoFilter";
@@ -8,7 +10,7 @@ type Props = {
   setFilter: (filter: Filter) => void;
 };
 
-const Footer = (props: Props) => {
+const Footer = memo((props: Props) => {
   const { count, filter, setFilter } = props;
 
   return (
@@ -17,6 +19,6 @@ const Footer = (props: Props) => {
       <TodoFilter filter={filter} setFilter={setFilter} />
     </footer>
   );
-};
+});
 
 export default Footer;

@@ -1,4 +1,5 @@
 import { Button } from "@blueprintjs/core";
+import { memo } from "react";
 
 import TodoInput from "./TodoInput";
 
@@ -7,7 +8,7 @@ type Props = {
   completeAllTodos: () => void;
 };
 
-const Header = (props: Props) => {
+const Header = memo((props: Props) => {
   const { addTodo, completeAllTodos } = props;
 
   return (
@@ -19,6 +20,6 @@ const Header = (props: Props) => {
       </div>
     </header>
   );
-};
+});
 
 export default Header;

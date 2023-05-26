@@ -1,11 +1,11 @@
 import { InputGroup } from "@blueprintjs/core";
-import { ChangeEvent, KeyboardEvent, useState } from "react";
+import { ChangeEvent, KeyboardEvent, useState, memo } from "react";
 
 type Props = {
   addTodo: (text: string) => void;
 };
 
-const TodoInput = (props: Props) => {
+const TodoInput = memo((props: Props) => {
   const { addTodo } = props;
 
   const [text, setText] = useState("");
@@ -30,6 +30,6 @@ const TodoInput = (props: Props) => {
       onKeyDown={handleKeyDown}
     />
   );
-};
+});
 
 export default TodoInput;

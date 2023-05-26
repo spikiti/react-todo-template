@@ -1,3 +1,5 @@
+import { memo } from "react";
+
 import TodoItem from "./TodoItem";
 import type { Todo } from "../types";
 
@@ -7,7 +9,7 @@ type Props = {
   deleteTodo: (id: string) => void;
 };
 
-const TodoList = (props: Props) => {
+const TodoList = memo((props: Props) => {
   const { todos, completeTodo, deleteTodo } = props;
 
   return (
@@ -26,6 +28,6 @@ const TodoList = (props: Props) => {
       </ul>
     </main>
   );
-};
+});
 
 export default TodoList;

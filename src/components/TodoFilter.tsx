@@ -1,4 +1,5 @@
 import { Button } from "@blueprintjs/core";
+import { memo } from "react";
 
 import { Filter } from "../types";
 
@@ -7,7 +8,7 @@ type Props = {
   setFilter: (filter: Filter) => void;
 };
 
-const TodoFilter = (props: Props) => {
+const TodoFilter = memo((props: Props) => {
   const { filter, setFilter } = props;
 
   return (
@@ -38,6 +39,6 @@ const TodoFilter = (props: Props) => {
       </li>
     </ul>
   );
-};
+});
 
 export default TodoFilter;
