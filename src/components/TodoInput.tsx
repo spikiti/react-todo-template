@@ -1,15 +1,33 @@
 import { InputGroup } from "@blueprintjs/core";
-import { useState } from "react";
+import { ChangeEvent, KeyboardEvent, useState } from "react";
 
-const TodoInput = () => {
+type Props = {
+  addTodo: (text: string) => void;
+};
+
+const TodoInput = (props: Props) => {
+  const { addTodo } = props;
+
   const [text, setText] = useState("");
+
+  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
+    setText(event.target.value);
+  };
+
+  const handleKeyDown = (event: KeyboardEvent<HTMLInputElement>) => {
+    if (event.key === "Enter" && text.trim() !== "") {
+      addTodo(text);
+      setText("");
+    }
+  };
 
   return (
     <InputGroup
       className="flex-1"
       placeholder="Add a Task"
       value={text}
-      onChange={(event) => setText(event.target.value)}
+      onChange={handleChange}
+      onKeyDown={handleKeyDown}
     />
   );
 };
