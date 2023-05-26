@@ -3,3 +3,5 @@ export type Todo = {
   text: string;
   status: "completed" | "pending";
 };
+
+export type Filter = "ALL" | "PENDING" | "COMPLETED";
