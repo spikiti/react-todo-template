@@ -3,17 +3,17 @@ import type { Todo } from "../types";
 
 const todos: Todo[] = [
   {
-    id: 1,
+    id: "1",
     text: "Get groceries",
     status: "completed",
   },
   {
-    id: 2,
+    id: "2",
     text: "Go to post office",
     status: "pending",
   },
   {
-    id: 3,
+    id: "3",
     text: "Do the laundry",
     status: "pending",
   },
