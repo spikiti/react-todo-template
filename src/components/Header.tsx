@@ -7,7 +7,7 @@ import { TodosDispatchContext } from "../context";
 const Header = () => {
   const setTodos = useContext(TodosDispatchContext);
 
-  const handleCompleteAll = () => {
+  const handleToggleAll = () => {
     setTodos((todos) => {
       const hasPending = todos.some((t) => t.status === "pending");
 
@@ -22,7 +22,7 @@ const Header = () => {
     <header>
       <h1>Todos</h1>
       <div className="flex gap-1">
-        <Button icon="tick" onClick={handleCompleteAll} />
+        <Button icon="tick" onClick={handleToggleAll} />
         <TodoInput />
       </div>
     </header>

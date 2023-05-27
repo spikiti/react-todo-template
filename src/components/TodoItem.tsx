@@ -15,7 +15,7 @@ const TodoItem = memo((props: Props) => {
 
   const isCompleted = todo.status === "completed";
 
-  const handleComplete = () => {
+  const handleToggle = () => {
     setTodos((todos) =>
       todos.map((t) => {
         if (t.id === todo.id) {
@@ -34,7 +34,7 @@ const TodoItem = memo((props: Props) => {
   return (
     <li className="todo-item flex justify-between align-center ">
       <div className="flex align-center">
-        <Checkbox checked={isCompleted} onClick={handleComplete} />
+        <Checkbox checked={isCompleted} onClick={handleToggle} />
         <label
           style={{ textDecoration: isCompleted ? "line-through" : "none" }}
         >
