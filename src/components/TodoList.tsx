@@ -1,25 +1,11 @@
-import TodoItem from "./TodoItem";
-import type { Todo } from "../types";
+import { useRecoilValue } from "recoil";
 
-const todos: Todo[] = [
-  {
-    id: "1",
-    text: "Get groceries",
-    status: "completed",
-  },
-  {
-    id: "2",
-    text: "Go to post office",
-    status: "pending",
-  },
-  {
-    id: "3",
-    text: "Do the laundry",
-    status: "pending",
-  },
-];
+import TodoItem from "./TodoItem";
+import { displayedTodosState } from "../store";
 
 const TodoList = () => {
+  const todos = useRecoilValue(displayedTodosState);
+
   return (
     <main>
       <ul>
