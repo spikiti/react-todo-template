@@ -1,6 +1,7 @@
 import { Checkbox, Button } from "@blueprintjs/core";
 
 import type { Todo } from "../types";
+import { actions } from "../store";
 
 type Props = {
   todo: Todo;
@@ -14,7 +15,10 @@ const TodoItem = (props: Props) => {
   return (
     <li className="todo-item flex justify-between align-center ">
       <div className="flex align-center">
-        <Checkbox />
+        <Checkbox
+          checked={isCompleted}
+          onClick={() => actions.toggleTodo(todo.id, todo.status)}
+        />
         <label
           style={{ textDecoration: isCompleted ? "line-through" : "none" }}
         >
@@ -22,7 +26,11 @@ const TodoItem = (props: Props) => {
         </label>
       </div>
       <div>
-        <Button small icon="small-cross" />
+        <Button
+          small
+          icon="small-cross"
+          onClick={() => actions.removeTodo(todo.id)}
+        />
       </div>
     </li>
   );

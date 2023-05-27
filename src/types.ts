@@ -1,7 +1,9 @@
+export type Status = "completed" | "pending";
+
 export type Todo = {
   id: string;
   text: string;
-  status: "completed" | "pending";
+  status: Status;
 };
 
 export type Filter = "ALL" | "PENDING" | "COMPLETED";
