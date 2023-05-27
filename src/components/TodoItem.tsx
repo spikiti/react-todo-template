@@ -5,19 +5,19 @@ import type { Todo } from "../types";
 
 type Props = {
   todo: Todo;
-  completeTodo: (id: string) => void;
+  toggleTodo: (id: string) => void;
   deleteTodo: (id: string) => void;
 };
 
 const TodoItem = memo((props: Props) => {
-  const { todo, completeTodo, deleteTodo } = props;
+  const { todo, toggleTodo, deleteTodo } = props;
 
   const isCompleted = todo.status === "completed";
 
   return (
     <li className="todo-item flex justify-between align-center ">
       <div className="flex align-center">
-        <Checkbox checked={isCompleted} onClick={() => completeTodo(todo.id)} />
+        <Checkbox checked={isCompleted} onClick={() => toggleTodo(todo.id)} />
         <label
           style={{ textDecoration: isCompleted ? "line-through" : "none" }}
         >

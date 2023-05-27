@@ -7,8 +7,7 @@ import { Filter } from "./types";
 import { useTodo } from "./useTodo";
 
 const App = () => {
-  const { todos, addTodo, completeTodo, deleteTodo, completeAllTodos } =
-    useTodo();
+  const { todos, addTodo, toggleTodo, deleteTodo, toggleAllTodos } = useTodo();
 
   const [filter, setFilter] = useState<Filter>("ALL");
 
@@ -31,10 +30,10 @@ const App = () => {
 
   return (
     <div className="flex flex-col gap-2">
-      <Header addTodo={addTodo} completeAllTodos={completeAllTodos} />
+      <Header addTodo={addTodo} toggleAllTodos={toggleAllTodos} />
       <TodoList
         todos={displayedTodos}
-        completeTodo={completeTodo}
+        toggleTodo={toggleTodo}
         deleteTodo={deleteTodo}
       />
       <Footer count={pendingTodosCount} filter={filter} setFilter={setFilter} />

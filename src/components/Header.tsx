@@ -5,17 +5,17 @@ import TodoInput from "./TodoInput";
 
 type Props = {
   addTodo: (text: string) => void;
-  completeAllTodos: () => void;
+  toggleAllTodos: () => void;
 };
 
 const Header = memo((props: Props) => {
-  const { addTodo, completeAllTodos } = props;
+  const { addTodo, toggleAllTodos } = props;
 
   return (
     <header>
       <h1>Todos</h1>
       <div className="flex gap-1">
-        <Button icon="tick" onClick={completeAllTodos} />
+        <Button icon="tick" onClick={toggleAllTodos} />
         <TodoInput addTodo={addTodo} />
       </div>
     </header>

@@ -5,12 +5,12 @@ import type { Todo } from "../types";
 
 type Props = {
   todos: Todo[];
-  completeTodo: (id: string) => void;
+  toggleTodo: (id: string) => void;
   deleteTodo: (id: string) => void;
 };
 
 const TodoList = memo((props: Props) => {
-  const { todos, completeTodo, deleteTodo } = props;
+  const { todos, toggleTodo, deleteTodo } = props;
 
   return (
     <main>
@@ -20,7 +20,7 @@ const TodoList = memo((props: Props) => {
             <TodoItem
               key={item.id}
               todo={item}
-              completeTodo={completeTodo}
+              toggleTodo={toggleTodo}
               deleteTodo={deleteTodo}
             />
           );

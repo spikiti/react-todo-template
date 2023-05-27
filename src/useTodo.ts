@@ -10,7 +10,7 @@ export const useTodo = () => {
     setTodos((todos) => [...todos, { id: nanoid(), text, status: "pending" }]);
   }, []);
 
-  const completeTodo = useCallback((id: string) => {
+  const toggleTodo = useCallback((id: string) => {
     setTodos((todos) =>
       todos.map((t) =>
         t.id === id
@@ -27,7 +27,7 @@ export const useTodo = () => {
     setTodos((todos) => todos.filter((t) => t.id !== id));
   }, []);
 
-  const completeAllTodos = useCallback(() => {
+  const toggleAllTodos = useCallback(() => {
     setTodos((todos) => {
       const hasPending = todos.some((t) => t.status === "pending");
 
@@ -38,5 +38,5 @@ export const useTodo = () => {
     });
   }, []);
 
-  return { todos, addTodo, completeTodo, deleteTodo, completeAllTodos };
+  return { todos, addTodo, toggleTodo, deleteTodo, toggleAllTodos };
 };
