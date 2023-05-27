@@ -1,25 +1,11 @@
 import TodoItem from "./TodoItem";
-import type { Todo } from "../types";
+import { useAtomValue } from "jotai";
 
-const todos: Todo[] = [
-  {
-    id: "1",
-    text: "Get groceries",
-    status: "completed",
-  },
-  {
-    id: "2",
-    text: "Go to post office",
-    status: "pending",
-  },
-  {
-    id: "3",
-    text: "Do the laundry",
-    status: "pending",
-  },
-];
+import { displayedAtoms } from "../atoms";
 
 const TodoList = () => {
+  const todos = useAtomValue(displayedAtoms);
+
   return (
     <main>
       <ul>

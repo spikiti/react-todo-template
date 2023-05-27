@@ -1,7 +1,13 @@
+import { useAtomValue } from "jotai";
+
+import { countAtom } from "../atoms";
+
 const TodoCount = () => {
+  const count = useAtomValue(countAtom);
+
   return (
     <div>
-      <strong>3</strong> items left
+      <strong>{count}</strong> {count > 1 ? "items" : "item"} left
     </div>
   );
 };
