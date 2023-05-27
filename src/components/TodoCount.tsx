@@ -3,7 +3,7 @@ import { useSnapshot } from "valtio";
 import { state } from "../store";
 
 const TodoCount = () => {
-  const { todos } = useSnapshot(state);
+  const todos = useSnapshot(state.todos);
 
   const count = todos.filter((t) => t.status === "pending").length;
 

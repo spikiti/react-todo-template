@@ -4,14 +4,14 @@ import { useSnapshot } from "valtio";
 import { actions, state } from "../store";
 
 const TodoFilter = () => {
-  const { filter } = useSnapshot(state);
+  const snap = useSnapshot(state);
 
   return (
     <ul className="flex gap-1">
       <li>
         <Button
           outlined
-          active={filter === "ALL"}
+          active={snap.filter === "ALL"}
           text="All"
           onClick={() => actions.setFilter("ALL")}
         />
@@ -19,7 +19,7 @@ const TodoFilter = () => {
       <li>
         <Button
           outlined
-          active={filter === "PENDING"}
+          active={snap.filter === "PENDING"}
           text="Pending"
           onClick={() => actions.setFilter("PENDING")}
         />
@@ -27,7 +27,7 @@ const TodoFilter = () => {
       <li>
         <Button
           outlined
-          active={filter === "COMPLETED"}
+          active={snap.filter === "COMPLETED"}
           text="Completed"
           onClick={() => actions.setFilter("COMPLETED")}
         />

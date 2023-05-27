@@ -7,6 +7,8 @@ type Props = {
   todo: Todo;
 };
 
+// Using React.memo with object props may result in unexpected behavior
+// See https://valtio.pmnd.rs/docs/how-tos/some-gotchas
 const TodoItem = (props: Props) => {
   const { todo } = props;
 
