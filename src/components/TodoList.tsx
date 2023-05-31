@@ -1,29 +1,22 @@
 import TodoItem from "./TodoItem";
-import type { Todo } from "../types";
-
-const todos: Todo[] = [
-  {
-    id: "1",
-    text: "Get groceries",
-    status: "completed",
-  },
-  {
-    id: "2",
-    text: "Go to post office",
-    status: "pending",
-  },
-  {
-    id: "3",
-    text: "Do the laundry",
-    status: "pending",
-  },
-];
+import { AppContext } from "../machine";
 
 const TodoList = () => {
+  const todos = AppContext.useSelector((s) => s.context.todos);
+  const filter = AppContext.useSelector((s) => s.context.filter);
+
+  const displayedTodos = todos.filter((t) =>
+    filter === "ALL"
+      ? true
+      : filter === "COMPLETED"
+      ? t.status === "completed"
+      : t.status === "pending"
+  );
+
   return (
     <main>
       <ul>
-        {todos.map((item) => {
+        {displayedTodos.map((item) => {
           return <TodoItem key={item.id} todo={item} />;
         })}
       </ul>

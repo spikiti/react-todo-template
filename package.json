@@ -12,11 +12,13 @@
   },
   "dependencies": {
     "@blueprintjs/core": "4.19.3",
+    "@xstate/react": "4.0.0-beta.5",
     "clsx": "1.2.1",
     "nanoid": "4.0.2",
     "normalize.css": "8.0.1",
     "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "react-dom": "18.2.0",
+    "xstate": "5.0.0-beta.13"
   },
   "devDependencies": {
     "@types/react": "18.0.28",

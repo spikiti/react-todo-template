@@ -1,8 +1,19 @@
 import { InputGroup } from "@blueprintjs/core";
-import { useState } from "react";
+import { useState, KeyboardEvent } from "react";
+
+import { AppContext } from "../machine";
 
 const TodoInput = () => {
   const [text, setText] = useState("");
+
+  const actor = AppContext.useActorRef();
+
+  const handleKeyDown = (event: KeyboardEvent<HTMLInputElement>) => {
+    if (event.key === "Enter" && text.trim() !== "") {
+      actor.send({ type: "ADD_TODO", payload: { text } });
+      setText("");
+    }
+  };
 
   return (
     <InputGroup
@@ -10,6 +21,7 @@ const TodoInput = () => {
       placeholder="Add a Task"
       value={text}
       onChange={(event) => setText(event.target.value)}
+      onKeyDown={handleKeyDown}
     />
   );
 };
